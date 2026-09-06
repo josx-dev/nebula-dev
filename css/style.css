@@ -1,0 +1,1360 @@
+/* =========================================================
+   RESET GENERAL
+========================================================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 110px;
+}
+
+section {
+  scroll-margin-top: 110px;
+}
+
+
+/* =========================================================
+   VARIABLES
+========================================================= */
+
+:root {
+  --color-principal: #7c3aed;
+  --color-principal-hover: #6d28d9;
+
+  --fondo-inicio: #0a0a0a;
+  --fondo-servicios: #190019;
+  --fondo-proyectos: #130116;
+  --fondo-redes: #10101a;
+  --fondo-contacto: #1f011f;
+
+  --fondo-card: #181818;
+  --fondo-input: #101010;
+
+  --borde: #292929;
+
+  --texto-principal: #ffffff;
+  --texto-secundario: #aaaaaa;
+}
+
+
+/* =========================================================
+   BODY
+========================================================= */
+
+body {
+  font-family: Arial, sans-serif;
+
+  background-color: var(--fondo-inicio);
+
+  color: var(--texto-principal);
+
+  overflow-x: hidden;
+}
+
+
+/* =========================================================
+   HEADER / NAVBAR
+========================================================= */
+
+.header {
+  position: fixed;
+
+  top: 18px;
+  left: 25px;
+  right: 25px;
+
+  max-width: 1500px;
+
+  margin: 0 auto;
+
+  padding: 12px 24px;
+
+  z-index: 1000;
+
+  background-color: rgba(40, 20, 65, 0.94);
+
+  border: 1px solid rgba(124, 58, 237, 0.25);
+
+  border-radius: 16px;
+
+  box-shadow:
+    0 10px 35px rgba(0, 0, 0, 0.35),
+    0 0 30px rgba(124, 58, 237, 0.12);
+
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  transition:
+    top 0.3s ease,
+    left 0.3s ease,
+    right 0.3s ease,
+    max-width 0.3s ease,
+    padding 0.3s ease,
+    border-radius 0.3s ease,
+    background-color 0.3s ease;
+}
+
+
+/* =========================================================
+   HEADER AL HACER SCROLL
+========================================================= */
+
+.header.scrolled {
+  top: 0;
+
+  left: 0;
+  right: 0;
+
+  max-width: none;
+
+  padding: 10px 30px;
+
+  border-radius: 0;
+
+  background-color: rgba(32, 15, 52, 0.97);
+}
+
+
+/* =========================================================
+   CONTENIDO NAVBAR
+========================================================= */
+
+.navbar {
+  width: 100%;
+
+  max-width: 1400px;
+
+  margin: 0 auto;
+
+  display: flex;
+
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+/* =========================================================
+   LOGO
+========================================================= */
+
+.logo {
+  position: relative;
+
+  z-index: 1002;
+
+  color: white;
+
+  font-size: 24px;
+  font-weight: bold;
+
+  letter-spacing: 0.5px;
+
+  text-decoration: none;
+}
+
+.logo span {
+  color: var(--color-principal);
+}
+
+
+/* =========================================================
+   LINKS NAVBAR
+========================================================= */
+
+.nav-links {
+  display: flex;
+
+  align-items: center;
+
+  gap: 6px;
+
+  padding: 5px;
+
+  list-style: none;
+
+  background-color: rgba(124, 58, 237, 0.08);
+
+  border-radius: 10px;
+}
+
+.nav-links a {
+  position: relative;
+
+  display: block;
+
+  padding: 9px 14px;
+
+  color: #bdbdbd;
+
+  font-size: 15px;
+
+  text-decoration: none;
+
+  border-radius: 8px;
+
+  transition:
+    color 0.3s,
+    background-color 0.3s;
+}
+
+.nav-links a:hover {
+  color: white;
+
+  background-color: rgba(124, 58, 237, 0.12);
+}
+
+
+/* LÍNEA VIOLETA */
+
+.nav-links a::after {
+  content: "";
+
+  position: absolute;
+
+  left: 14px;
+  right: 14px;
+  bottom: 4px;
+
+  height: 2px;
+
+  background-color: var(--color-principal);
+
+  transform: scaleX(0);
+
+  transition: transform 0.3s;
+}
+
+.nav-links a:hover::after {
+  transform: scaleX(1);
+}
+
+
+/* =========================================================
+   BOTÓN HAMBURGUESA
+========================================================= */
+
+.menu-toggle {
+  display: none;
+
+  position: relative;
+
+  z-index: 1002;
+
+  background: none;
+
+  border: none;
+
+  color: white;
+
+  font-size: 30px;
+
+  cursor: pointer;
+}
+
+
+/* =========================================================
+   HERO / INICIO
+========================================================= */
+
+.hero {
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+  align-items: center;
+
+  padding: 120px 40px 40px;
+
+  text-align: center;
+
+  background-color: var(--fondo-inicio);
+}
+
+.hero h1 {
+  max-width: 800px;
+
+  margin-bottom: 20px;
+
+  font-size: 60px;
+}
+
+.hero p {
+  max-width: 600px;
+
+  margin-bottom: 30px;
+
+  color: var(--texto-secundario);
+
+  font-size: 20px;
+
+  line-height: 1.6;
+}
+
+.hero button {
+  padding: 15px 30px;
+
+  background-color: var(--color-principal);
+
+  color: white;
+
+  border: none;
+
+  border-radius: 10px;
+
+  font-size: 16px;
+
+  cursor: pointer;
+
+  transition: 0.3s;
+}
+
+.hero button:hover {
+  background-color: var(--color-principal-hover);
+
+  transform: translateY(-3px);
+}
+
+
+/* =========================================================
+   SERVICIOS
+========================================================= */
+
+.servicios {
+  width: 100%;
+
+  padding: 100px clamp(20px, 5vw, 60px);
+
+  background-color: var(--fondo-servicios);
+}
+
+.servicios-contenedor {
+  width: 100%;
+  max-width: 1200px;
+
+  margin: 0 auto;
+}
+
+.servicios-titulo {
+  width: 100%;
+  max-width: 700px;
+
+  margin-bottom: 60px;
+}
+
+.servicios-titulo span {
+  color: var(--color-principal);
+
+  font-size: 16px;
+  font-weight: bold;
+
+  text-transform: uppercase;
+}
+
+.servicios-titulo h2 {
+  margin-top: 15px;
+  margin-bottom: 20px;
+
+  font-size: 42px;
+}
+
+.servicios-titulo p {
+  color: var(--texto-secundario);
+
+  font-size: 18px;
+
+  line-height: 1.6;
+}
+
+
+/* =========================================================
+   GRID SERVICIOS
+========================================================= */
+
+.servicios-grid {
+  width: 100%;
+
+  display: grid;
+
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+
+  gap: 25px;
+}
+
+
+/* =========================================================
+   CARD SERVICIO
+========================================================= */
+
+.servicio-card {
+  width: 100%;
+  min-width: 0;
+
+  padding: 35px;
+
+  background-color: var(--fondo-card);
+
+  border: 1px solid var(--borde);
+
+  border-radius: 16px;
+
+  transition: 0.3s;
+}
+
+.servicio-card h3 {
+  margin-bottom: 15px;
+
+  font-size: 24px;
+}
+
+.servicio-card p {
+  color: var(--texto-secundario);
+
+  line-height: 1.6;
+}
+
+.servicio-card:hover {
+  transform: translateY(-8px);
+
+  border-color: var(--color-principal);
+
+  box-shadow:
+    0 12px 30px rgba(124, 58, 237, 0.1);
+}
+
+
+/* =========================================================
+   PROYECTOS
+========================================================= */
+
+.proyectos {
+  width: 100%;
+
+  padding: 100px clamp(20px, 5vw, 60px);
+
+  background-color: var(--fondo-proyectos);
+}
+
+.proyectos-contenedor {
+  width: 100%;
+  max-width: 1200px;
+
+  margin: 0 auto;
+}
+
+.proyectos-titulo {
+  width: 100%;
+  max-width: 700px;
+
+  margin-bottom: 60px;
+}
+
+.proyectos-titulo > span {
+  color: var(--color-principal);
+
+  font-size: 16px;
+  font-weight: bold;
+
+  text-transform: uppercase;
+}
+
+.proyectos-titulo h2 {
+  margin-top: 15px;
+  margin-bottom: 20px;
+
+  font-size: 42px;
+}
+
+.proyectos-titulo p {
+  color: var(--texto-secundario);
+
+  font-size: 18px;
+
+  line-height: 1.6;
+}
+
+
+/* =========================================================
+   GRID PROYECTOS
+========================================================= */
+
+.proyectos-grid {
+  width: 100%;
+
+  display: grid;
+
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+
+  gap: 25px;
+}
+
+
+/* =========================================================
+   CARD PROYECTO
+========================================================= */
+
+.proyecto-card {
+  width: 100%;
+  min-width: 0;
+
+  background-color: #151515;
+
+  border: 1px solid var(--borde);
+
+  border-radius: 18px;
+
+  overflow: hidden;
+
+  transition: 0.3s;
+}
+
+.proyecto-card:hover {
+  transform: translateY(-8px);
+
+  border-color: var(--color-principal);
+
+  box-shadow:
+    0 12px 30px rgba(124, 58, 237, 0.1);
+}
+
+
+/* =========================================================
+   IMAGEN PROYECTO
+========================================================= */
+
+.proyecto-imagen {
+  height: 230px;
+
+  overflow: hidden;
+}
+
+.proyecto-imagen img {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  transition: transform 0.4s;
+}
+
+.proyecto-card:hover .proyecto-imagen img {
+  transform: scale(1.05);
+}
+
+
+/* =========================================================
+   INFORMACIÓN PROYECTO
+========================================================= */
+
+.proyecto-info {
+  padding: 30px;
+}
+
+.proyecto-categoria {
+  color: var(--color-principal);
+
+  font-size: 14px;
+  font-weight: bold;
+
+  text-transform: uppercase;
+}
+
+.proyecto-info h3 {
+  margin-top: 12px;
+  margin-bottom: 15px;
+
+  font-size: 26px;
+}
+
+.proyecto-info p {
+  margin-bottom: 25px;
+
+  color: var(--texto-secundario);
+
+  line-height: 1.6;
+}
+
+.proyecto-info a {
+  color: white;
+
+  font-weight: bold;
+
+  text-decoration: none;
+
+  transition: color 0.3s;
+}
+
+.proyecto-info a:hover {
+  color: var(--color-principal);
+}
+
+
+/* =========================================================
+   REDES SOCIALES
+========================================================= */
+
+.redes {
+  width: 100%;
+
+  padding: 100px clamp(20px, 5vw, 60px);
+
+  background-color: var(--fondo-redes);
+}
+
+.redes-contenedor {
+  width: 100%;
+  max-width: 1200px;
+
+  margin: 0 auto;
+}
+
+
+/* =========================================================
+   TÍTULO REDES
+========================================================= */
+
+.redes-titulo {
+  width: 100%;
+  max-width: 700px;
+
+  margin-bottom: 60px;
+}
+
+.redes-titulo > span {
+  color: var(--color-principal);
+
+  font-size: 16px;
+  font-weight: bold;
+
+  text-transform: uppercase;
+}
+
+.redes-titulo h2 {
+  margin-top: 15px;
+  margin-bottom: 20px;
+
+  font-size: 42px;
+}
+
+.redes-titulo p {
+  color: var(--texto-secundario);
+
+  font-size: 18px;
+
+  line-height: 1.6;
+}
+
+
+/* =========================================================
+   GRID REDES
+========================================================= */
+
+.redes-grid {
+  width: 100%;
+
+  display: grid;
+
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+
+  gap: 25px;
+}
+
+
+/* =========================================================
+   CARD RED SOCIAL
+========================================================= */
+
+.red-card {
+  position: relative;
+
+  width: 100%;
+  min-width: 0;
+
+  padding: 35px;
+
+  display: flex;
+  flex-direction: column;
+
+  background-color: var(--fondo-card);
+
+  color: white;
+
+  border: 1px solid var(--borde);
+
+  border-radius: 18px;
+
+  text-decoration: none;
+
+  overflow: hidden;
+
+  transition:
+    transform 0.3s,
+    border-color 0.3s,
+    box-shadow 0.3s,
+    background-color 0.3s;
+}
+
+.red-card:hover {
+  transform: translateY(-8px);
+}
+
+
+/* =========================================================
+   ICONO RED SOCIAL
+========================================================= */
+
+.red-icono {
+  width: 82px;
+  height: 82px;
+
+  margin-bottom: 30px;
+
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+
+  background-color: #101010;
+
+  border: 1px solid #292929;
+
+  border-radius: 20px;
+
+  transition:
+    transform 0.3s,
+    background-color 0.3s;
+}
+
+
+/* ICONOS MEDIANAMENTE GRANDES */
+
+.red-icono i {
+  font-size: 44px;
+
+  transition:
+    transform 0.3s,
+    filter 0.3s;
+}
+
+.red-card:hover .red-icono {
+  transform: translateY(-3px);
+}
+
+.red-card:hover .red-icono i {
+  transform: scale(1.12);
+}
+
+
+/* =========================================================
+   INFORMACIÓN RED
+========================================================= */
+
+.red-info span {
+  font-size: 14px;
+  font-weight: bold;
+
+  text-transform: uppercase;
+}
+
+.red-info h3 {
+  margin-top: 10px;
+  margin-bottom: 15px;
+
+  font-size: 26px;
+}
+
+.red-info p {
+  color: var(--texto-secundario);
+
+  line-height: 1.6;
+}
+
+
+/* =========================================================
+   FLECHA
+========================================================= */
+
+.red-flecha {
+  margin-top: 30px;
+
+  font-size: 28px;
+
+  transition: transform 0.3s;
+}
+
+.red-card:hover .red-flecha {
+  transform: translateX(8px);
+}
+
+
+/* =========================================================
+   INSTAGRAM
+========================================================= */
+
+.red-card.instagram .red-icono i,
+.red-card.instagram .red-info span {
+  color: #e1306c;
+}
+
+.red-card.instagram:hover {
+  border-color: #e1306c;
+
+  background-color: rgba(225, 48, 108, 0.035);
+
+  box-shadow:
+    0 15px 35px rgba(225, 48, 108, 0.15);
+}
+
+.red-card.instagram:hover .red-icono {
+  background-color: rgba(225, 48, 108, 0.08);
+}
+
+
+/* =========================================================
+   WHATSAPP
+========================================================= */
+
+.red-card.whatsapp .red-icono i,
+.red-card.whatsapp .red-info span {
+  color: #25d366;
+}
+
+.red-card.whatsapp:hover {
+  border-color: #25d366;
+
+  background-color: rgba(37, 211, 102, 0.035);
+
+  box-shadow:
+    0 15px 35px rgba(37, 211, 102, 0.15);
+}
+
+.red-card.whatsapp:hover .red-icono {
+  background-color: rgba(37, 211, 102, 0.08);
+}
+
+
+/* =========================================================
+   DISCORD
+========================================================= */
+
+.red-card.discord .red-icono i,
+.red-card.discord .red-info span {
+  color: #5865f2;
+}
+
+.red-card.discord:hover {
+  border-color: #5865f2;
+
+  background-color: rgba(88, 101, 242, 0.035);
+
+  box-shadow:
+    0 15px 35px rgba(88, 101, 242, 0.15);
+}
+
+.red-card.discord:hover .red-icono {
+  background-color: rgba(88, 101, 242, 0.08);
+}
+
+
+/* =========================================================
+   CONTACTO
+========================================================= */
+
+.contacto {
+  width: 100%;
+
+  padding: 100px clamp(20px, 5vw, 60px);
+
+  background-color: var(--fondo-contacto);
+}
+
+.contacto-contenedor {
+  width: 100%;
+  max-width: 1200px;
+
+  margin: 0 auto;
+}
+
+.contacto-titulo {
+  width: 100%;
+  max-width: 700px;
+
+  margin-bottom: 60px;
+}
+
+.contacto-titulo > span {
+  color: var(--color-principal);
+
+  font-size: 16px;
+  font-weight: bold;
+
+  text-transform: uppercase;
+}
+
+.contacto-titulo h2 {
+  margin-top: 15px;
+  margin-bottom: 20px;
+
+  font-size: 42px;
+}
+
+.contacto-titulo p {
+  color: var(--texto-secundario);
+
+  font-size: 18px;
+
+  line-height: 1.6;
+}
+
+
+/* =========================================================
+   GRID CONTACTO
+========================================================= */
+
+.contacto-grid {
+  width: 100%;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    minmax(0, 1.4fr);
+
+  gap: 40px;
+}
+
+
+/* =========================================================
+   INFORMACIÓN CONTACTO
+========================================================= */
+
+.contacto-info {
+  width: 100%;
+  min-width: 0;
+
+  padding: 35px;
+
+  background-color: var(--fondo-card);
+
+  border: 1px solid var(--borde);
+
+  border-radius: 18px;
+}
+
+.contacto-info h3 {
+  margin-bottom: 15px;
+
+  font-size: 26px;
+}
+
+.contacto-info > p {
+  margin-bottom: 35px;
+
+  color: var(--texto-secundario);
+
+  line-height: 1.6;
+}
+
+.contacto-dato {
+  margin-bottom: 25px;
+}
+
+.contacto-dato span {
+  display: block;
+
+  margin-bottom: 8px;
+
+  color: var(--color-principal);
+
+  font-size: 14px;
+  font-weight: bold;
+
+  text-transform: uppercase;
+}
+
+.contacto-dato p,
+.contacto-dato a {
+  color: #cccccc;
+
+  text-decoration: none;
+
+  line-height: 1.5;
+
+  overflow-wrap: anywhere;
+}
+
+.contacto-dato a:hover {
+  color: white;
+}
+
+
+/* =========================================================
+   FORMULARIO
+========================================================= */
+
+.contacto-form {
+  width: 100%;
+  min-width: 0;
+
+  padding: 35px;
+
+  background-color: var(--fondo-card);
+
+  border: 1px solid var(--borde);
+
+  border-radius: 18px;
+}
+
+.form-grupo {
+  margin-bottom: 25px;
+}
+
+.form-grupo label {
+  display: block;
+
+  margin-bottom: 10px;
+
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.form-grupo input,
+.form-grupo textarea {
+  width: 100%;
+
+  padding: 14px 16px;
+
+  background-color: var(--fondo-input);
+
+  color: white;
+
+  border: 1px solid #303030;
+
+  border-radius: 10px;
+
+  outline: none;
+
+  font-family: inherit;
+
+  font-size: 16px;
+
+  transition:
+    border-color 0.3s,
+    box-shadow 0.3s;
+}
+
+.form-grupo textarea {
+  resize: vertical;
+}
+
+.form-grupo input:focus,
+.form-grupo textarea:focus {
+  border-color: var(--color-principal);
+
+  box-shadow:
+    0 0 0 3px rgba(124, 58, 237, 0.12);
+}
+
+.contacto-form button {
+  padding: 15px 28px;
+
+  background-color: var(--color-principal);
+
+  color: white;
+
+  border: none;
+
+  border-radius: 10px;
+
+  font-size: 16px;
+  font-weight: bold;
+
+  cursor: pointer;
+
+  transition: 0.3s;
+}
+
+.contacto-form button:hover {
+  background-color: var(--color-principal-hover);
+
+  transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   TABLET
+   HASTA 1000px
+========================================================= */
+
+@media (max-width: 1000px) {
+
+  .servicios-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .proyectos-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .redes-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .contacto-grid {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+
+/* =========================================================
+   CELULAR
+   HASTA 768px
+========================================================= */
+
+@media (max-width: 768px) {
+
+  html {
+    scroll-padding-top: 90px;
+  }
+
+  section {
+    scroll-margin-top: 90px;
+  }
+
+
+  /* =====================================================
+     HEADER
+  ===================================================== */
+
+  .header {
+    top: 15px;
+
+    left: 15px;
+    right: 15px;
+
+    padding: 12px 16px;
+
+    border-radius: 14px;
+  }
+
+  .header.scrolled {
+    top: 0;
+
+    left: 0;
+    right: 0;
+
+    padding: 10px 16px;
+
+    border-radius: 0;
+  }
+
+  .navbar {
+    width: 100%;
+  }
+
+
+  /* =====================================================
+     BOTÓN HAMBURGUESA
+  ===================================================== */
+
+  .menu-toggle {
+    display: block;
+  }
+
+
+  /* =====================================================
+     MENÚ MÓVIL
+  ===================================================== */
+
+  .nav-links {
+    position: fixed;
+
+    inset: 0;
+
+    width: 100%;
+    min-height: 100dvh;
+
+    padding: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    gap: 20px;
+
+    background-color: #0a0a0a;
+
+    border-radius: 0;
+
+    z-index: 1001;
+
+    transform: translateX(100%);
+
+    transition: transform 0.3s ease;
+  }
+
+  .nav-links.active {
+    transform: translateX(0);
+  }
+
+  .nav-links a {
+    padding: 12px 20px;
+
+    font-size: 24px;
+  }
+
+
+  /* =====================================================
+     HERO
+  ===================================================== */
+
+  .hero {
+    padding: 110px 20px 40px;
+  }
+
+  .hero h1 {
+    font-size: 42px;
+  }
+
+  .hero p {
+    font-size: 18px;
+  }
+
+
+  /* =====================================================
+     SERVICIOS
+  ===================================================== */
+
+  .servicios {
+    padding: 80px 20px;
+  }
+
+  .servicios-titulo {
+    margin-bottom: 40px;
+  }
+
+  .servicios-titulo h2 {
+    font-size: 34px;
+  }
+
+  .servicios-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .servicio-card {
+    padding: 25px;
+  }
+
+
+  /* =====================================================
+     PROYECTOS
+  ===================================================== */
+
+  .proyectos {
+    padding: 80px 20px;
+  }
+
+  .proyectos-titulo {
+    margin-bottom: 40px;
+  }
+
+  .proyectos-titulo h2 {
+    font-size: 34px;
+  }
+
+  .proyectos-titulo p {
+    font-size: 17px;
+  }
+
+  .proyectos-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .proyecto-imagen {
+    height: 200px;
+  }
+
+  .proyecto-info {
+    padding: 25px;
+  }
+
+
+  /* =====================================================
+     REDES SOCIALES
+  ===================================================== */
+
+  .redes {
+    padding: 80px 20px;
+  }
+
+  .redes-titulo {
+    margin-bottom: 40px;
+  }
+
+  .redes-titulo h2 {
+    font-size: 34px;
+  }
+
+  .redes-titulo p {
+    font-size: 17px;
+  }
+
+  .redes-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .red-card {
+    padding: 25px;
+  }
+
+  .red-icono {
+    width: 72px;
+    height: 72px;
+
+    border-radius: 17px;
+  }
+
+  .red-icono i {
+    font-size: 39px;
+  }
+
+
+  /* =====================================================
+     CONTACTO
+  ===================================================== */
+
+  .contacto {
+    padding: 80px 20px;
+  }
+
+  .contacto-titulo {
+    margin-bottom: 40px;
+  }
+
+  .contacto-titulo h2 {
+    font-size: 34px;
+  }
+
+  .contacto-grid {
+    grid-template-columns: 1fr;
+
+    gap: 25px;
+  }
+
+  .contacto-info,
+  .contacto-form {
+    padding: 25px;
+  }
+
+}
