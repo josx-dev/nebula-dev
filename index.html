@@ -111,28 +111,63 @@
 
 
   <!-- =====================================================
-       HERO / INICIO
-  ====================================================== -->
+     HERO / INICIO
+====================================================== -->
 
-  <section
-    class="hero"
-    id="inicio"
-  >
+<section class="hero" id="inicio">
+
+  <!-- =================================================
+       FONDO MATRIX ANIMADO
+  ================================================== -->
+
+  <canvas
+    id="matrix-canvas"
+    class="matrix-canvas"
+    aria-hidden="true"
+  ></canvas>
+
+
+  <!-- =================================================
+       CAPA OSCURA SOBRE LA ANIMACIÓN
+  ================================================== -->
+
+  <div class="hero-overlay"></div>
+
+
+  <!-- =================================================
+       CONTENIDO PRINCIPAL
+  ================================================== -->
+
+  <div class="hero-contenido">
+
+    <span class="hero-etiqueta">
+      Diseño · Desarrollo · Tecnología
+    </span>
+
 
     <h1>
-      Construimos experiencias digitales
+      Construimos experiencias
+      <span>digitales</span>
     </h1>
+
 
     <p>
       Creamos páginas web modernas, rápidas y diseñadas
       para hacer crecer tu negocio.
     </p>
 
-    <button>
-      Comenzar
-    </button>
 
-  </section>
+    <a
+      href="#servicios"
+      class="hero-boton"
+    >
+      Comenzar
+      <span>→</span>
+    </a>
+
+  </div>
+
+</section>
 
 
 
