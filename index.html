@@ -111,63 +111,69 @@
 
 
   <!-- =====================================================
-     HERO / INICIO
-====================================================== -->
+       HERO / INICIO
+  ====================================================== -->
 
-<section class="hero" id="inicio">
-
-  <!-- =================================================
-       FONDO MATRIX ANIMADO
-  ================================================== -->
-
-  <canvas
-    id="matrix-canvas"
-    class="matrix-canvas"
-    aria-hidden="true"
-  ></canvas>
+  <section
+    class="hero"
+    id="inicio"
+  >
 
 
-  <!-- =================================================
-       CAPA OSCURA SOBRE LA ANIMACIÓN
-  ================================================== -->
+    <!-- =================================================
+         FONDO MATRIX ANIMADO
+    ================================================== -->
 
-  <div class="hero-overlay"></div>
-
-
-  <!-- =================================================
-       CONTENIDO PRINCIPAL
-  ================================================== -->
-
-  <div class="hero-contenido">
-
-    <span class="hero-etiqueta">
-      Diseño · Desarrollo · Tecnología
-    </span>
+    <canvas
+      id="matrix-canvas"
+      class="matrix-canvas"
+      aria-hidden="true"
+    ></canvas>
 
 
-    <h1>
-      Construimos experiencias
-      <span>digitales</span>
-    </h1>
+    <!-- =================================================
+         CAPA OSCURA SOBRE LA ANIMACIÓN
+    ================================================== -->
+
+    <div class="hero-overlay"></div>
 
 
-    <p>
-      Creamos páginas web modernas, rápidas y diseñadas
-      para hacer crecer tu negocio.
-    </p>
+    <!-- =================================================
+         CONTENIDO PRINCIPAL
+    ================================================== -->
+
+    <div class="hero-contenido">
 
 
-    <a
-      href="#servicios"
-      class="hero-boton"
-    >
-      Comenzar
-      <span>→</span>
-    </a>
+      <span class="hero-etiqueta">
+        Diseño · Desarrollo · Tecnología
+      </span>
 
-  </div>
 
-</section>
+      <h1>
+        Construimos experiencias
+        <span>digitales</span>
+      </h1>
+
+
+      <p>
+        Creamos páginas web modernas, rápidas y diseñadas
+        para hacer crecer tu negocio.
+      </p>
+
+
+      <a
+        href="#servicios"
+        class="hero-boton"
+      >
+        Comenzar
+        <span>→</span>
+      </a>
+
+
+    </div>
+
+  </section>
 
 
 
@@ -278,7 +284,9 @@
     >
 
 
-      <!-- TÍTULO -->
+      <!-- =================================================
+           TÍTULO
+      ================================================== -->
 
       <div class="proyectos-titulo">
 
@@ -291,52 +299,78 @@
         </h2>
 
         <p>
-          Diseñamos experiencias digitales pensadas para
-          combinar estética, funcionalidad y rendimiento.
+          Proyectos desarrollados combinando diseño,
+          programación, funcionalidad y tecnología.
         </p>
 
       </div>
 
 
-      <!-- GRID -->
+
+      <!-- =================================================
+           GRID DE PROYECTOS
+      ================================================== -->
 
       <div class="proyectos-grid">
 
 
         <!-- =================================================
-             PROYECTO 1 - LUXON
+             PROYECTO 1 - AZRAEL HOOKED
         ================================================== -->
 
         <article class="proyecto-card">
 
+
+          <!-- IMAGEN -->
+
           <div class="proyecto-imagen">
 
             <img
-              src="assets/imagenes/luxon-1.jpg"
-              alt="Proyecto Luxon Events"
+              src="assets/imagenes/Azrael-Launcher.png"
+              alt="Interfaz de Azrael Hooked"
             >
 
           </div>
 
 
+          <!-- INFORMACIÓN -->
+
           <div class="proyecto-info">
 
             <span class="proyecto-categoria">
-              Diseño Web
+              Desktop App
             </span>
 
+
             <h3>
-              Luxon Events
+              Azrael Hooked
             </h3>
 
+
             <p>
-              Sitio web moderno para una empresa de eventos,
-              con una experiencia visual elegante y responsive.
+              Launcher privado desarrollado en Python con
+              autenticación, gestión de sesiones y diferentes
+              herramientas integradas.
             </p>
 
-            <a href="#">
-              Ver proyecto →
-            </a>
+
+            <!-- BOTÓN DESPLEGAR -->
+
+            <button
+              class="proyecto-ver"
+              type="button"
+              data-proyecto="azrael"
+              aria-expanded="false"
+              aria-controls="proyecto-detalle"
+            >
+
+              Ver detalles
+
+              <span>
+                ↓
+              </span>
+
+            </button>
 
           </div>
 
@@ -350,15 +384,20 @@
 
         <article class="proyecto-card">
 
+
+          <!-- IMAGEN -->
+
           <div class="proyecto-imagen">
 
             <img
               src="assets/imagenes/vecino-1.png"
-              alt="Proyecto VecinoServicio"
+              alt="Interfaz de VecinoServicio"
             >
 
           </div>
 
+
+          <!-- INFORMACIÓN -->
 
           <div class="proyecto-info">
 
@@ -366,18 +405,36 @@
               Aplicación
             </span>
 
+
             <h3>
               VecinoServicio
             </h3>
 
+
             <p>
               Plataforma orientada a conectar usuarios
-              con profesionales y servicios locales.
+              con profesionales y servicios locales
+              mediante una interfaz sencilla.
             </p>
 
-            <a href="#">
-              Ver proyecto →
-            </a>
+
+            <!-- BOTÓN DESPLEGAR -->
+
+            <button
+              class="proyecto-ver"
+              type="button"
+              data-proyecto="vecino"
+              aria-expanded="false"
+              aria-controls="proyecto-detalle"
+            >
+
+              Ver detalles
+
+              <span>
+                ↓
+              </span>
+
+            </button>
 
           </div>
 
@@ -386,39 +443,62 @@
 
 
         <!-- =================================================
-             PROYECTO 3 - NEBULA TATTOO
+             PROYECTO 3 - NEBULA DEV
         ================================================== -->
 
         <article class="proyecto-card">
 
+
+          <!-- IMAGEN -->
+
           <div class="proyecto-imagen">
 
             <img
-              src="assets/imagenes/tatuaje-2.jpg"
-              alt="Proyecto Nebula Tattoo"
+              src="assets/imagenes/Nebula-1.png"
+              alt="Página web Nebula Dev"
             >
 
           </div>
 
 
+          <!-- INFORMACIÓN -->
+
           <div class="proyecto-info">
 
             <span class="proyecto-categoria">
-              Branding
+              Desarrollo Web
             </span>
 
+
             <h3>
-              Nebula Tattoo
+              Nebula Dev
             </h3>
 
+
             <p>
-              Concepto visual y presencia digital para
-              una marca orientada al mundo del tatuaje.
+              Portfolio web moderno desarrollado desde cero
+              con HTML, CSS y JavaScript, diseño responsive
+              y despliegue automático.
             </p>
 
-            <a href="#">
-              Ver proyecto →
-            </a>
+
+            <!-- BOTÓN DESPLEGAR -->
+
+            <button
+              class="proyecto-ver"
+              type="button"
+              data-proyecto="nebula"
+              aria-expanded="false"
+              aria-controls="proyecto-detalle"
+            >
+
+              Ver detalles
+
+              <span>
+                ↓
+              </span>
+
+            </button>
 
           </div>
 
@@ -426,6 +506,184 @@
 
 
       </div>
+
+
+
+      <!-- =================================================
+           PANEL DESPLEGABLE DEL PROYECTO
+      ================================================== -->
+
+      <div
+        class="proyecto-detalle"
+        id="proyecto-detalle"
+        aria-hidden="true"
+      >
+
+
+        <div class="proyecto-detalle-contenido">
+
+
+          <!-- =================================================
+               GALERÍA
+          ================================================== -->
+
+          <div class="proyecto-detalle-galeria">
+
+
+            <!-- IMAGEN PRINCIPAL -->
+
+            <div class="proyecto-detalle-imagen">
+
+              <img
+                id="detalle-imagen"
+                src=""
+                alt=""
+              >
+
+            </div>
+
+
+
+            <!-- =================================================
+                 MINIATURAS
+                 JavaScript agregará las imágenes acá
+            ================================================== -->
+
+            <div
+              class="detalle-miniaturas"
+              id="detalle-miniaturas"
+            ></div>
+
+
+          </div>
+
+
+
+          <!-- =================================================
+               INFORMACIÓN DEL PROYECTO
+          ================================================== -->
+
+          <div class="proyecto-detalle-info">
+
+
+            <!-- CATEGORÍA -->
+
+            <span
+              class="proyecto-detalle-categoria"
+              id="detalle-categoria"
+            ></span>
+
+
+            <!-- TÍTULO -->
+
+            <h3
+              id="detalle-titulo"
+            ></h3>
+
+
+
+            <!-- =================================================
+                 DESCRIPCIÓN
+            ================================================== -->
+
+            <div class="detalle-bloque">
+
+              <h4>
+                Descripción
+              </h4>
+
+              <p
+                id="detalle-descripcion"
+              ></p>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 UTILIDAD
+            ================================================== -->
+
+            <div class="detalle-bloque">
+
+              <h4>
+                ¿Para qué sirve?
+              </h4>
+
+              <p
+                id="detalle-utilidad"
+              ></p>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 CARACTERÍSTICAS
+            ================================================== -->
+
+            <div
+              class="detalle-bloque detalle-caracteristicas-bloque"
+              id="detalle-caracteristicas-bloque"
+            >
+
+              <h4>
+                Características principales
+              </h4>
+
+              <ul
+                class="detalle-caracteristicas"
+                id="detalle-caracteristicas"
+              ></ul>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 TECNOLOGÍAS
+            ================================================== -->
+
+            <div class="detalle-bloque">
+
+              <h4>
+                Tecnologías
+              </h4>
+
+              <div
+                class="detalle-tecnologias"
+                id="detalle-tecnologias"
+              ></div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 BOTÓN CERRAR
+            ================================================== -->
+
+            <button
+              class="detalle-cerrar"
+              id="detalle-cerrar"
+              type="button"
+            >
+
+              Cerrar
+
+              <span>
+                ↑
+              </span>
+
+            </button>
+
+
+          </div>
+
+        </div>
+
+      </div>
+
 
     </div>
 
@@ -482,6 +740,7 @@
           aria-label="Instagram"
         >
 
+
           <div class="red-icono">
 
             <i class="fa-brands fa-instagram"></i>
@@ -511,6 +770,7 @@
             →
           </div>
 
+
         </a>
 
 
@@ -526,6 +786,7 @@
           rel="noopener noreferrer"
           aria-label="WhatsApp"
         >
+
 
           <div class="red-icono">
 
@@ -556,6 +817,7 @@
             →
           </div>
 
+
         </a>
 
 
@@ -571,6 +833,7 @@
           rel="noopener noreferrer"
           aria-label="Discord"
         >
+
 
           <div class="red-icono">
 
@@ -600,6 +863,7 @@
           <div class="red-flecha">
             →
           </div>
+
 
         </a>
 

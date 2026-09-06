@@ -17,6 +17,7 @@ if (menuToggle && navLinks) {
 
     navLinks.classList.toggle("active");
 
+
     if (navLinks.classList.contains("active")) {
 
       menuToggle.textContent = "✕";
@@ -44,6 +45,7 @@ links.forEach(function (link) {
       navLinks.classList.remove("active");
     }
 
+
     if (menuToggle) {
       menuToggle.textContent = "☰";
     }
@@ -66,6 +68,7 @@ function actualizarHeader() {
     return;
   }
 
+
   if (window.scrollY > 80) {
 
     header.classList.add("scrolled");
@@ -82,12 +85,16 @@ function actualizarHeader() {
 window.addEventListener(
   "scroll",
   actualizarHeader,
-  { passive: true }
+  {
+    passive: true
+  }
 );
 
 
-/* Ejecutamos una vez por si cargamos
-   la página estando scrolleada */
+/*
+  Ejecutamos una vez por si la página
+  carga estando scrolleada.
+*/
 
 actualizarHeader();
 
@@ -121,17 +128,17 @@ if (matrixCanvas) {
 
   const colores = [
 
-    "#7c3aed",   // violeta principal
+    "#7c3aed",
 
-    "#8b5cf6",   // violeta claro
+    "#8b5cf6",
 
-    "#a78bfa",   // lila
+    "#a78bfa",
 
-    "#6366f1",   // índigo
+    "#6366f1",
 
-    "#3b82f6",   // azul
+    "#3b82f6",
 
-    "#c4b5fd"    // lila muy claro
+    "#c4b5fd"
 
   ];
 
@@ -156,19 +163,23 @@ if (matrixCanvas) {
   /*
     Aproximadamente 30 FPS.
 
-    Esto hace que la animación siga siendo
-    fluida pero consuma menos recursos que
-    ejecutarla a 60 FPS constantemente.
+    Mantiene la animación fluida
+    sin consumir recursos innecesarios.
   */
 
-  const intervaloFrame = 1000 / 30;
+  const intervaloFrame =
+    1000 / 30;
+
 
 
   /* =====================================================
-     UTILIDADES
+     UTILIDADES MATRIX
   ===================================================== */
 
-  function numeroAleatorio(minimo, maximo) {
+  function numeroAleatorio(
+    minimo,
+    maximo
+  ) {
 
     return (
       Math.random() *
@@ -205,7 +216,7 @@ if (matrixCanvas) {
 
 
   /* =====================================================
-     CREAR UNA COLUMNA
+     CREAR COLUMNA
   ===================================================== */
 
   function crearColumna(indice) {
@@ -216,11 +227,13 @@ if (matrixCanvas) {
         indice * tamanoFuente +
         tamanoFuente / 2,
 
+
       y:
         numeroAleatorio(
           -altoCanvas,
           altoCanvas
         ),
+
 
       velocidad:
         numeroAleatorio(
@@ -228,14 +241,17 @@ if (matrixCanvas) {
           3
         ),
 
+
       opacidad:
         numeroAleatorio(
           0.20,
           0.65
         ),
 
+
       color:
         colorAleatorio(),
+
 
       cambioCaracter:
         numeroAleatorio(
@@ -283,15 +299,13 @@ if (matrixCanvas) {
     anchoCanvas =
       hero.clientWidth;
 
+
     altoCanvas =
       hero.clientHeight;
 
 
     /*
-      Limitamos el pixel ratio a 2.
-
-      Evita un consumo excesivo en
-      pantallas de alta resolución.
+      Limitamos pixel ratio a 2.
     */
 
     const pixelRatio =
@@ -302,14 +316,18 @@ if (matrixCanvas) {
 
 
     matrixCanvas.width =
-      anchoCanvas * pixelRatio;
+      anchoCanvas *
+      pixelRatio;
+
 
     matrixCanvas.height =
-      altoCanvas * pixelRatio;
+      altoCanvas *
+      pixelRatio;
 
 
     matrixCanvas.style.width =
       anchoCanvas + "px";
+
 
     matrixCanvas.style.height =
       altoCanvas + "px";
@@ -332,6 +350,7 @@ if (matrixCanvas) {
     ctx.fillStyle =
       "#050507";
 
+
     ctx.fillRect(
       0,
       0,
@@ -341,8 +360,7 @@ if (matrixCanvas) {
 
 
     /*
-      Calculamos cuántas columnas
-      entran en pantalla.
+      Calculamos cantidad de columnas.
     */
 
     const cantidadColumnas =
@@ -358,9 +376,12 @@ if (matrixCanvas) {
           length:
             cantidadColumnas
         },
+
         function (_, indice) {
 
-          return crearColumna(indice);
+          return crearColumna(
+            indice
+          );
 
         }
       );
@@ -375,12 +396,11 @@ if (matrixCanvas) {
 
   function dibujarMatrix() {
 
-
     /*
-      Capa negra transparente.
+      Rectángulo transparente.
 
-      No borramos completamente el frame
-      anterior para conseguir las estelas.
+      Al no borrar completamente
+      conseguimos las estelas.
     */
 
     ctx.fillStyle =
@@ -421,13 +441,7 @@ if (matrixCanvas) {
 
 
         /* =========================
-           EFECTO CENTRAL
-
-           Cerca del centro los caracteres
-           son un poco más transparentes.
-
-           De esta forma la animación
-           "enmarca" el texto principal.
+           ZONA CENTRAL MÁS LIMPIA
         ========================= */
 
         const distanciaCentro =
@@ -439,15 +453,19 @@ if (matrixCanvas) {
 
         const distanciaNormalizada =
           Math.min(
+
             distanciaCentro /
             (anchoCanvas / 2),
+
             1
+
           );
 
 
         const factorCentro =
           0.38 +
-          distanciaNormalizada * 0.62;
+          distanciaNormalizada *
+          0.62;
 
 
         const opacidadFinal =
@@ -485,13 +503,13 @@ if (matrixCanvas) {
 
 
         /* =========================
-           CABEZA MÁS BRILLANTE
-
-           Algunas letras tienen un pequeño
-           destello para dar profundidad.
+           DESTELLO
         ========================= */
 
-        if (Math.random() > 0.94) {
+        if (
+          Math.random() >
+          0.94
+        ) {
 
           ctx.globalAlpha =
             Math.min(
@@ -515,7 +533,7 @@ if (matrixCanvas) {
 
 
         /* =========================
-           RESTAURAR SOMBRA
+           RESTAURAR
         ========================= */
 
         ctx.shadowBlur = 0;
@@ -569,13 +587,15 @@ if (matrixCanvas) {
         }
 
 
+
         /* =========================
-           CAMBIO OCASIONAL DE COLOR
+           CAMBIAR COLOR
         ========================= */
 
         if (
           Math.random() <
-          columna.cambioCaracter * 0.015
+          columna.cambioCaracter *
+          0.015
         ) {
 
           columna.color =
@@ -591,10 +611,12 @@ if (matrixCanvas) {
 
 
   /* =====================================================
-     LOOP DE ANIMACIÓN
+     LOOP MATRIX
   ===================================================== */
 
-  function animarMatrix(tiempoActual) {
+  function animarMatrix(
+    tiempoActual
+  ) {
 
     animacionID =
       requestAnimationFrame(
@@ -701,9 +723,7 @@ if (matrixCanvas) {
 
 
   /* =====================================================
-     PAUSAR SI EL USUARIO CAMBIA DE PESTAÑA
-
-     Evita gastar recursos innecesariamente.
+     PAUSAR CUANDO CAMBIAMOS DE PESTAÑA
   ===================================================== */
 
   document.addEventListener(
@@ -719,6 +739,7 @@ if (matrixCanvas) {
         ultimoFrame =
           performance.now();
 
+
         iniciarMatrix();
 
       }
@@ -729,10 +750,7 @@ if (matrixCanvas) {
 
 
   /* =====================================================
-     REDUCIR MOVIMIENTO
-
-     Respeta la configuración de accesibilidad
-     del dispositivo del usuario.
+     ACCESIBILIDAD
   ===================================================== */
 
   const reducirMovimiento =
@@ -741,22 +759,26 @@ if (matrixCanvas) {
     );
 
 
+
   /* =====================================================
-     INICIALIZACIÓN
+     INICIALIZACIÓN MATRIX
   ===================================================== */
 
   ajustarCanvas();
 
 
-  if (!reducirMovimiento.matches) {
+  if (
+    !reducirMovimiento.matches
+  ) {
 
     iniciarMatrix();
 
   } else {
 
     /*
-      Si el usuario desactiva animaciones,
-      mostramos solamente un frame estático.
+      Si el usuario tiene reducidas
+      las animaciones mostramos
+      solamente un frame.
     */
 
     dibujarMatrix();
@@ -764,3 +786,1035 @@ if (matrixCanvas) {
   }
 
 }
+
+
+
+/* =========================================================
+   PROYECTOS
+========================================================= */
+
+
+/*
+  En este objeto guardamos toda la información
+  de los proyectos.
+
+  Las cards del HTML solamente necesitan
+  indicar:
+
+  data-proyecto="azrael"
+  data-proyecto="vecino"
+  data-proyecto="nebula"
+*/
+
+const proyectosData = {
+
+
+  /* =====================================================
+     AZRAEL HOOKED
+  ===================================================== */
+
+  azrael: {
+
+    titulo:
+      "Azrael Hooked",
+
+
+    categoria:
+      "Desktop App",
+
+
+    imagenes: [
+
+      "assets/imagenes/Azrael-Launcher.png",
+
+      "assets/imagenes/Azrael-Launcher-2.png"
+
+    ],
+
+
+    descripcion:
+      "Azrael Hooked es una aplicación de escritorio privada desarrollada como launcher y centro de herramientas para una plataforma de juego retro. El proyecto combina una interfaz modular con autenticación de usuarios, gestión de sesiones y comunicación con distintos servicios internos.",
+
+
+    utilidad:
+      "Su objetivo es centralizar el acceso a la plataforma, la sesión del usuario, configuraciones y distintas herramientas dentro de una única aplicación. También permite organizar funciones de diagnóstico, administración y control desde una interfaz gráfica.",
+
+
+    caracteristicas: [
+
+      "Interfaz gráfica modular desarrollada en Python.",
+
+      "Sistema de autenticación y gestión de sesiones.",
+
+      "Perfiles, permisos y roles de usuario.",
+
+      "Comunicación cliente-servidor mediante API.",
+
+      "Paneles independientes para diferentes herramientas.",
+
+      "Sistema de logs y diagnóstico.",
+
+      "Configuraciones locales y persistencia de datos.",
+
+      "Herramientas de red y configuración de proxy local.",
+
+      "Atajos de teclado y acciones configurables.",
+
+      "Arquitectura preparada para incorporar nuevos módulos."
+
+    ],
+
+
+    tecnologias: [
+
+      "Python",
+
+      "Flet",
+
+      "REST API",
+
+      "JWT",
+
+      "JSON",
+
+      "HTTP",
+
+      "Networking",
+
+      "Windows API",
+
+      "Client-Server"
+
+    ]
+
+  },
+
+
+
+  /* =====================================================
+     VECINOSERVICIO
+  ===================================================== */
+
+  vecino: {
+
+    titulo:
+      "VecinoServicio",
+
+
+    categoria:
+      "Aplicación",
+
+
+    imagenes: [
+
+      "assets/imagenes/vecino-1.png"
+
+    ],
+
+
+    descripcion:
+      "VecinoServicio es un prototipo de aplicación orientado a conectar usuarios con profesionales de servicios locales mediante una interfaz moderna diseñada principalmente para dispositivos móviles.",
+
+
+    utilidad:
+      "Permite que una persona pueda buscar de manera sencilla profesionales de diferentes categorías como plomería, electricidad, pintura, jardinería y otros servicios. Al mismo tiempo, ofrece una estructura donde los profesionales pueden presentar sus servicios a potenciales clientes.",
+
+
+    caracteristicas: [
+
+      "Interfaz gráfica desarrollada con Flet.",
+
+      "Diseño orientado a dispositivos móviles.",
+
+      "Sistema de categorías de servicios.",
+
+      "Perfiles de profesionales.",
+
+      "Valoraciones e información de cada profesional.",
+
+      "Navegación entre diferentes vistas.",
+
+      "Formulario para profesionales.",
+
+      "Componentes reutilizables.",
+
+      "Diseño enfocado en facilidad de uso."
+
+    ],
+
+
+    tecnologias: [
+
+      "Python",
+
+      "Flet",
+
+      "UI / UX",
+
+      "Responsive Design"
+
+    ]
+
+  },
+
+
+
+  /* =====================================================
+     NEBULA DEV
+  ===================================================== */
+
+  nebula: {
+
+    titulo:
+      "Nebula Dev",
+
+
+    categoria:
+      "Desarrollo Web",
+
+
+    imagenes: [
+
+      "assets/imagenes/Nebula-1.png",
+
+      "assets/imagenes/Nebula-2.png"
+
+    ],
+
+
+    descripcion:
+      "Nebula Dev es un sitio web desarrollado desde cero como portfolio y presencia digital profesional. El proyecto combina desarrollo frontend, diseño responsive, animaciones personalizadas y una identidad visual inspirada en tonos violetas, lilas y azules.",
+
+
+    utilidad:
+      "Funciona como portfolio profesional para presentar servicios, proyectos realizados, tecnologías utilizadas, redes sociales y medios de contacto. También sirve como base para futuros sitios web comerciales y proyectos para clientes.",
+
+
+    caracteristicas: [
+
+      "Diseño completamente responsive.",
+
+      "HTML semántico y estructura organizada.",
+
+      "CSS personalizado sin frameworks.",
+
+      "JavaScript desarrollado desde cero.",
+
+      "Navbar dinámica y menú responsive.",
+
+      "Navegación suave entre secciones.",
+
+      "Animación Matrix personalizada mediante Canvas.",
+
+      "Galería interactiva de proyectos.",
+
+      "Sección de redes sociales.",
+
+      "Formulario de contacto preparado para integración.",
+
+      "Control de versiones mediante Git y GitHub.",
+
+      "Deployment automático conectado al repositorio.",
+
+      "Hosting mediante Cloudflare Workers."
+
+    ],
+
+
+    tecnologias: [
+
+      "HTML5",
+
+      "CSS3",
+
+      "JavaScript",
+
+      "Canvas API",
+
+      "Responsive Design",
+
+      "Git",
+
+      "GitHub",
+
+      "Cloudflare"
+
+    ]
+
+  }
+
+};
+
+
+
+/* =========================================================
+   ELEMENTOS DEL PANEL DE PROYECTOS
+========================================================= */
+
+const proyectoDetalle =
+  document.getElementById(
+    "proyecto-detalle"
+  );
+
+
+const detalleImagen =
+  document.getElementById(
+    "detalle-imagen"
+  );
+
+
+const detalleMiniaturas =
+  document.getElementById(
+    "detalle-miniaturas"
+  );
+
+
+const detalleCategoria =
+  document.getElementById(
+    "detalle-categoria"
+  );
+
+
+const detalleTitulo =
+  document.getElementById(
+    "detalle-titulo"
+  );
+
+
+const detalleDescripcion =
+  document.getElementById(
+    "detalle-descripcion"
+  );
+
+
+const detalleUtilidad =
+  document.getElementById(
+    "detalle-utilidad"
+  );
+
+
+const detalleCaracteristicasBloque =
+  document.getElementById(
+    "detalle-caracteristicas-bloque"
+  );
+
+
+const detalleCaracteristicas =
+  document.getElementById(
+    "detalle-caracteristicas"
+  );
+
+
+const detalleTecnologias =
+  document.getElementById(
+    "detalle-tecnologias"
+  );
+
+
+const detalleCerrar =
+  document.getElementById(
+    "detalle-cerrar"
+  );
+
+
+const botonesProyecto =
+  document.querySelectorAll(
+    ".proyecto-ver"
+  );
+
+
+let proyectoActual = null;
+
+
+
+/* =========================================================
+   CAMBIAR IMAGEN PRINCIPAL
+========================================================= */
+
+function cambiarImagenProyecto(
+  imagen,
+  titulo
+) {
+
+  if (!detalleImagen) {
+    return;
+  }
+
+
+  /*
+    Pequeño fade para que el cambio
+    de captura sea más agradable.
+  */
+
+  detalleImagen.style.opacity =
+    "0";
+
+
+  setTimeout(
+    function () {
+
+      detalleImagen.src =
+        imagen;
+
+
+      detalleImagen.alt =
+        `Captura del proyecto ${titulo}`;
+
+
+      detalleImagen.style.opacity =
+        "1";
+
+    },
+    120
+  );
+
+}
+
+
+
+/* =========================================================
+   CREAR MINIATURAS
+========================================================= */
+
+function crearMiniaturas(
+  proyecto
+) {
+
+  if (!detalleMiniaturas) {
+    return;
+  }
+
+
+  detalleMiniaturas.innerHTML =
+    "";
+
+
+  /*
+    Si solamente hay una imagen,
+    no necesitamos mostrar miniaturas.
+  */
+
+  if (
+    proyecto.imagenes.length <= 1
+  ) {
+
+    detalleMiniaturas.style.display =
+      "none";
+
+
+    return;
+
+  }
+
+
+  detalleMiniaturas.style.display =
+    "flex";
+
+
+  proyecto.imagenes.forEach(
+    function (
+      imagen,
+      indice
+    ) {
+
+      const boton =
+        document.createElement(
+          "button"
+        );
+
+
+      boton.type =
+        "button";
+
+
+      boton.className =
+        "detalle-miniatura";
+
+
+      /*
+        La primera captura empieza activa.
+      */
+
+      if (indice === 0) {
+
+        boton.classList.add(
+          "active"
+        );
+
+      }
+
+
+      boton.setAttribute(
+        "aria-label",
+        `Ver captura ${indice + 1} de ${proyecto.titulo}`
+      );
+
+
+      const miniatura =
+        document.createElement(
+          "img"
+        );
+
+
+      miniatura.src =
+        imagen;
+
+
+      miniatura.alt =
+        `Miniatura ${indice + 1} de ${proyecto.titulo}`;
+
+
+      boton.appendChild(
+        miniatura
+      );
+
+
+      boton.addEventListener(
+        "click",
+        function () {
+
+          cambiarImagenProyecto(
+            imagen,
+            proyecto.titulo
+          );
+
+
+          /*
+            Quitamos active de todas.
+          */
+
+          detalleMiniaturas
+            .querySelectorAll(
+              ".detalle-miniatura"
+            )
+            .forEach(
+              function (
+                otraMiniatura
+              ) {
+
+                otraMiniatura
+                  .classList
+                  .remove(
+                    "active"
+                  );
+
+              }
+            );
+
+
+          boton.classList.add(
+            "active"
+          );
+
+        }
+      );
+
+
+      detalleMiniaturas.appendChild(
+        boton
+      );
+
+    }
+  );
+
+}
+
+
+
+/* =========================================================
+   CREAR CARACTERÍSTICAS
+========================================================= */
+
+function crearCaracteristicas(
+  proyecto
+) {
+
+  if (
+    !detalleCaracteristicas ||
+    !detalleCaracteristicasBloque
+  ) {
+
+    return;
+
+  }
+
+
+  detalleCaracteristicas.innerHTML =
+    "";
+
+
+  /*
+    Si un proyecto no tiene características
+    ocultamos todo el bloque.
+  */
+
+  if (
+    !proyecto.caracteristicas ||
+    proyecto.caracteristicas.length === 0
+  ) {
+
+    detalleCaracteristicasBloque
+      .style
+      .display =
+      "none";
+
+
+    return;
+
+  }
+
+
+  detalleCaracteristicasBloque
+    .style
+    .display =
+    "block";
+
+
+  proyecto.caracteristicas.forEach(
+    function (caracteristica) {
+
+      const item =
+        document.createElement(
+          "li"
+        );
+
+
+      item.textContent =
+        caracteristica;
+
+
+      detalleCaracteristicas
+        .appendChild(
+          item
+        );
+
+    }
+  );
+
+}
+
+
+
+/* =========================================================
+   CREAR TECNOLOGÍAS
+========================================================= */
+
+function crearTecnologias(
+  proyecto
+) {
+
+  if (!detalleTecnologias) {
+    return;
+  }
+
+
+  detalleTecnologias.innerHTML =
+    "";
+
+
+  proyecto.tecnologias.forEach(
+    function (tecnologia) {
+
+      const etiqueta =
+        document.createElement(
+          "span"
+        );
+
+
+      etiqueta.textContent =
+        tecnologia;
+
+
+      detalleTecnologias
+        .appendChild(
+          etiqueta
+        );
+
+    }
+  );
+
+}
+
+
+
+/* =========================================================
+   ACTUALIZAR BOTONES
+========================================================= */
+
+function actualizarBotonesProyecto(
+  proyectoID
+) {
+
+  botonesProyecto.forEach(
+    function (boton) {
+
+      const esActivo =
+        boton.dataset.proyecto ===
+        proyectoID;
+
+
+      boton.setAttribute(
+        "aria-expanded",
+        esActivo ?
+          "true" :
+          "false"
+      );
+
+
+      const flecha =
+        boton.querySelector(
+          "span"
+        );
+
+
+      if (flecha) {
+
+        flecha.textContent =
+          esActivo ?
+            "↑" :
+            "↓";
+
+      }
+
+    }
+  );
+
+}
+
+
+
+/* =========================================================
+   MOSTRAR PROYECTO
+========================================================= */
+
+function mostrarProyecto(
+  proyectoID
+) {
+
+  const proyecto =
+    proyectosData[
+      proyectoID
+    ];
+
+
+  if (
+    !proyecto ||
+    !proyectoDetalle
+  ) {
+
+    return;
+
+  }
+
+
+  /* =====================================================
+     IMAGEN PRINCIPAL
+  ===================================================== */
+
+  if (
+    proyecto.imagenes &&
+    proyecto.imagenes.length > 0
+  ) {
+
+    cambiarImagenProyecto(
+      proyecto.imagenes[0],
+      proyecto.titulo
+    );
+
+  }
+
+
+
+  /* =====================================================
+     TEXTO
+  ===================================================== */
+
+  if (detalleCategoria) {
+
+    detalleCategoria.textContent =
+      proyecto.categoria;
+
+  }
+
+
+  if (detalleTitulo) {
+
+    detalleTitulo.textContent =
+      proyecto.titulo;
+
+  }
+
+
+  if (detalleDescripcion) {
+
+    detalleDescripcion.textContent =
+      proyecto.descripcion;
+
+  }
+
+
+  if (detalleUtilidad) {
+
+    detalleUtilidad.textContent =
+      proyecto.utilidad;
+
+  }
+
+
+
+  /* =====================================================
+     GALERÍA
+  ===================================================== */
+
+  crearMiniaturas(
+    proyecto
+  );
+
+
+
+  /* =====================================================
+     CARACTERÍSTICAS
+  ===================================================== */
+
+  crearCaracteristicas(
+    proyecto
+  );
+
+
+
+  /* =====================================================
+     TECNOLOGÍAS
+  ===================================================== */
+
+  crearTecnologias(
+    proyecto
+  );
+
+
+
+  /* =====================================================
+     ABRIR PANEL
+  ===================================================== */
+
+  proyectoDetalle.classList.add(
+    "active"
+  );
+
+
+  proyectoDetalle.setAttribute(
+    "aria-hidden",
+    "false"
+  );
+
+
+  proyectoActual =
+    proyectoID;
+
+
+  actualizarBotonesProyecto(
+    proyectoID
+  );
+
+
+
+  /* =====================================================
+     SCROLL HACIA EL PANEL
+  ===================================================== */
+
+  setTimeout(
+    function () {
+
+      proyectoDetalle.scrollIntoView({
+
+        behavior:
+          "smooth",
+
+        block:
+          "nearest"
+
+      });
+
+    },
+    180
+  );
+
+}
+
+
+
+/* =========================================================
+   CERRAR DETALLE
+========================================================= */
+
+function cerrarDetalleProyecto() {
+
+  if (!proyectoDetalle) {
+    return;
+  }
+
+
+  /* =====================================================
+     VOLVER A LA SECCIÓN PROYECTOS
+  ===================================================== */
+
+  const seccionProyectos =
+    document.getElementById(
+      "proyectos"
+    );
+
+
+  /*
+    Primero hacemos scroll hacia Proyectos
+    mientras el panel todavía conserva su altura.
+
+    Esto evita que al cerrarse el panel
+    el navegador termine desplazándonos
+    hacia la siguiente sección.
+  */
+
+  if (seccionProyectos) {
+
+    seccionProyectos.scrollIntoView({
+
+      behavior: "smooth",
+
+      block: "start"
+
+    });
+
+  }
+
+
+  /* =====================================================
+     CERRAR PANEL
+  ===================================================== */
+
+  /*
+    Esperamos un poquito para que comience
+    el scroll antes de contraer el panel.
+  */
+
+  setTimeout(
+    function () {
+
+      proyectoDetalle.classList.remove(
+        "active"
+      );
+
+
+      proyectoDetalle.setAttribute(
+        "aria-hidden",
+        "true"
+      );
+
+
+      proyectoActual =
+        null;
+
+
+      actualizarBotonesProyecto(
+        null
+      );
+
+    },
+    180
+  );
+
+}
+
+
+
+/* =========================================================
+   BOTONES VER DETALLES
+========================================================= */
+
+botonesProyecto.forEach(
+  function (boton) {
+
+    boton.addEventListener(
+      "click",
+      function () {
+
+        const proyectoID =
+          boton.dataset.proyecto;
+
+
+        /*
+          Si hacemos click en el proyecto
+          que ya está abierto,
+          lo cerramos.
+        */
+
+        if (
+          proyectoActual ===
+            proyectoID &&
+          proyectoDetalle &&
+          proyectoDetalle.classList.contains(
+            "active"
+          )
+        ) {
+
+          cerrarDetalleProyecto();
+
+
+          return;
+
+        }
+
+
+        /*
+          Si seleccionamos otro,
+          cambiamos el contenido.
+        */
+
+        mostrarProyecto(
+          proyectoID
+        );
+
+      }
+    );
+
+  }
+);
+
+
+
+/* =========================================================
+   BOTÓN CERRAR
+========================================================= */
+
+if (detalleCerrar) {
+
+  detalleCerrar.addEventListener(
+    "click",
+    cerrarDetalleProyecto
+  );
+
+}
+
+
+
+/* =========================================================
+   TECLA ESCAPE
+========================================================= */
+
+document.addEventListener(
+  "keydown",
+  function (event) {
+
+    if (
+      event.key === "Escape" &&
+      proyectoDetalle &&
+      proyectoDetalle
+        .classList
+        .contains(
+          "active"
+        )
+    ) {
+
+      cerrarDetalleProyecto();
+
+    }
+
+  }
+);
