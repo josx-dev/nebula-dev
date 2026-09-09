@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://nebula-dev.josx-dev.workers.dev/sitemap.xml
